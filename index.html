@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Julio Mendoza — Frontend Developer</title>
+  <meta name="description" content="Portfolio de Julio Mendoza, Frontend Developer enfocado en Angular, desarrollo de interfaces modernas y uso de IA." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="backdrop"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- ============================================================
+       Navbar
+       ============================================================ -->
+  <header class="navbar">
+    <a class="brand" href="#top" aria-label="Inicio">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><strong>julio</strong><span>.dev</span></span>
+    </a>
+
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a class="nav-link" href="#projects">Proyectos</a></li>
+        <li><a class="nav-link" href="#case-study">Caso de Estudio</a></li>
+        <li><a class="nav-link" href="#skills">Habilidades</a></li>
+        <li><a class="nav-link" href="#about">Sobre Mí</a></li>
+        <li><a class="nav-link" href="#contact">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <a class="nav-cta" href="#contact">
+      <span class="dot" aria-hidden="true"></span>
+      Disponible para trabajar
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#case-study">Caso de Estudio</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#about">Sobre Mí</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- ============================================================
+         Hero
+         ============================================================ -->
+    <section class="hero" id="top" data-screen-label="01 Hero">
+      <div class="container hero-inner">
+        <span class="hero-meta">
+          <span class="dot"></span>
+          Colombia · Abierto a oportunidades como Frontend
+        </span>
+
+        <h1>
+          <span class="line"><span>Interfaces</span></span>
+          <span class="line"><span>construidas para el</span></span>
+          <span class="line"><span class="accent">usuario final.</span></span>
+        </h1>
+
+        <p class="role-line" id="hero-role"></p>
+
+        <p class="hero-lede">
+          Soy Julio — diseño y construyo el front-end de aplicaciones dinámicas: herramientas que 
+          las personas realmente usan todos los días. Con Angular, TypeScript y un firme enfoque en las buenas prácticas,
+          la accesibilidad y la implementación de Inteligencia Artificial para optimizar código.
+        </p>
+
+        <div class="hero-cta-row">
+          <a class="btn btn--primary" href="#projects">
+            Ver proyectos
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <a class="btn btn--ghost" href="#contact">Contactarme</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <span class="stat-num">2+</span>
+            <span class="stat-label">Años de exp.</span>
+          </div>
+          <div>
+            <span class="stat-num">Angular</span>
+            <span class="stat-label">Framework principal</span>
+          </div>
+          <div>
+            <span class="stat-num">TypeScript</span>
+            <span class="stat-label">Tipado seguro</span>
+          </div>
+          <div>
+            <span class="stat-num">IA</span>
+            <span class="stat-label">Asistencia de código</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#projects" aria-label="Scroll to projects">
+        scroll
+      </a>
+    </section>
+
+    <!-- ============================================================
+         Projects
+         ============================================================ -->
+    <section id="projects" data-screen-label="02 Projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Trabajos Destacados</span>
+            <h2 class="section-title">Proyectos</h2>
+          </div>
+          <p class="section-lede">
+            Una selección de proyectos recientes en los que he trabajado, enfocados en construir interfaces
+            sólidas y eficientes. Incluyen enlaces a repositorios y demos.
+          </p>
+        </div>
+
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Case Study
+         ============================================================ -->
+    <section id="case-study" data-screen-label="03 Case Study">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Destacado</span>
+            <h2 class="section-title">Análisis a fondo</h2>
+          </div>
+          <p class="section-lede">
+            Un proyecto desglosado. El problema, las restricciones y las decisiones 
+            importantes de arquitectura.
+          </p>
+        </div>
+        <div id="case-study-body"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Skills
+         ============================================================ -->
+    <section id="skills" data-screen-label="04 Skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Caja de Herramientas</span>
+            <h2 class="section-title">Habilidades</h2>
+          </div>
+          <p class="section-lede">
+            Agrupadas por área de enfoque, estas son las tecnologías y herramientas que manejo en mi día a día.
+          </p>
+        </div>
+        <div class="skills-grid" id="skills-grid"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         About
+         ============================================================ -->
+    <section id="about" data-screen-label="05 About">
+      <div class="container about-grid">
+        <div class="avatar reveal" aria-hidden="true">
+          <span class="avatar__initials" id="avatar-initials">JM</span>
+          <span class="avatar__tag" id="avatar-tag">Barcelona, ES</span>
+        </div>
+        <div class="about-body reveal" id="about-body" data-delay="100"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Contact
+         ============================================================ -->
+    <section id="contact" data-screen-label="06 Contact">
+      <div class="container contact-grid">
+        <aside class="contact-aside reveal">
+          <span class="eyebrow">Contacto</span>
+          <h2 class="section-title">Hablemos de<br>tu próximo proyecto.</h2>
+          <p>
+            Buscando oportunidades como desarrollador Frontend en Angular o proyectos interesantes. Respondo a la brevedad.
+          </p>
+          <div class="socials" id="socials"></div>
+        </aside>
+
+        <form class="contact-form reveal" id="contact-form" data-delay="100" novalidate>
+          <div class="field">
+            <label for="f-name">Nombre</label>
+            <input id="f-name" name="name" type="text" placeholder="Tu nombre completo" autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="f-email">Correo Electrónico</label>
+            <input id="f-email" name="email" type="email" placeholder="tu@correo.com" autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="f-message">Mensaje</label>
+            <textarea id="f-message" name="message" placeholder="Un par de líneas sobre tu proyecto o rol…"></textarea>
+          </div>
+          <div class="form-footer">
+            <span class="form-note">Se abre en tu cliente de correo · Sin backend</span>
+            <button type="submit" class="btn btn--primary">
+              Enviar
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </button>
+          </div>
+          <div class="form-status" id="form-status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="footer-year"></span> <span id="footer-name"></span> — Creado con HTML, CSS &amp; JS.</span>
+    <span>
+      <a href="#top">Volver arriba ↑</a>
+    </span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
