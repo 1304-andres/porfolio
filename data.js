@@ -24,68 +24,13 @@
 const PROJECTS = [
   {
     id: "p01",
-    name: "Dashboard de E-commerce",
+    name: "Proyectos frontend en preparación",
     description:
-      "Panel de análisis en tiempo real. Gráficos dinámicos, diseño modular con drag-and-drop, exportación de datos y vistas por roles de usuario.",
-    stack: ["Angular", "TypeScript", "RxJS", "Tailwind", "PrimeNG"],
-    repo: "https://github.com/tu-usuario/proyecto-1",
-    demo: "https://demo.dev",
-    year: "2024",
-    accent: "#00D4FF",
-  },
-  {
-    id: "p02",
-    name: "Plataforma de Gestión",
-    description:
-      "Herramienta de operaciones y administración. Interfaz limpia, offline-first y sincronización de datos mediante APIs REST.",
-    stack: ["Angular", "TypeScript", "RxJS", "SCSS"],
-    repo: "https://github.com/tu-usuario/proyecto-2",
-    demo: "https://demo.dev",
-    year: "2024",
-    accent: "#7C5CFF",
-  },
-  {
-    id: "p03",
-    name: "Sistema CMS",
-    description:
-      "Gestor de contenidos con composición por bloques y previsualización en tiempo real. Optimizado para cargas rápidas.",
-    stack: ["Angular", "JavaScript", "HTML5", "CSS3"],
-    repo: "https://github.com/tu-usuario/proyecto-3",
-    demo: "https://demo.dev",
-    year: "2023",
-    accent: "#30E0A1",
-  },
-  {
-    id: "p04",
-    name: "UI de Finanzas",
-    description:
-      "Interfaz para el control de gastos. Manejo de estados eficiente, formateo de divisas y tablas de datos avanzadas.",
-    stack: ["Angular", "RxJS", "CSS Grid"],
-    repo: "https://github.com/tu-usuario/proyecto-4",
-    demo: "https://demo.dev",
-    year: "2023",
-    accent: "#FFB84D",
-  },
-  {
-    id: "p05",
-    name: "Design System",
-    description:
-      "Librería de componentes reutilizables. Temas personalizables y optimizados para accesibilidad (a11y).",
-    stack: ["Angular", "SCSS", "Componentes"],
-    repo: "https://github.com/tu-usuario/proyecto-5",
-    demo: "https://demo.dev",
-    year: "2023",
-    accent: "#FF6B9D",
-  },
-  {
-    id: "p06",
-    name: "Buscador de Datos",
-    description:
-      "Explorador de información filtrable. Manejo de peticiones asíncronas, rutas protegidas y diseño responsive.",
-    stack: ["TypeScript", "Angular", "API REST"],
-    repo: "https://github.com/tu-usuario/proyecto-6",
-    demo: "https://demo.dev",
-    year: "2022",
+      "Estoy organizando proyectos para mostrar mejor mi trabajo con Angular, TypeScript, HTML, CSS, consumo de APIs REST y diseño responsive. Esta sección se irá actualizando con repositorios y demos reales.",
+    stack: ["Angular", "TypeScript", "HTML", "CSS", "APIs REST"],
+    repo: "",
+    demo: "",
+    year: "En construcción",
     accent: "#00D4FF",
   },
 ];
@@ -93,61 +38,64 @@ const PROJECTS = [
 /** @type {SkillGroup[]} */
 const SKILL_GROUPS = [
   {
-    category: "Frontend",
+    category: "Frontend principal",
     items: [
-      { name: "Angular", level: 90 },
-      { name: "TypeScript", level: 85 },
-      { name: "JavaScript", level: 85 },
-      { name: "HTML5", level: 95 },
-      { name: "CSS3", level: 90 },
+      { name: "Angular", level: 75 },
+      { name: "TypeScript", level: 70 },
+      { name: "JavaScript", level: 70 },
+      { name: "HTML5", level: 85 },
+      { name: "CSS3", level: 80 },
     ],
   },
   {
-    category: "UI / UX",
+    category: "Flujo de trabajo",
     items: [
-      { name: "Responsive Design", level: 90 },
-      { name: "Component-based architecture", level: 85 },
-      { name: "PrimeNG", level: 80 },
+      { name: "Git & GitHub", level: 75 },
+      { name: "Scrum", level: 75 },
+      { name: "Consumo de APIs REST", level: 70 },
+      { name: "Responsive Design", level: 80 },
     ],
   },
   {
-    category: "Herramientas",
+    category: "Angular y UI",
     items: [
-      { name: "Git & GitHub", level: 85 },
-      { name: "Consumo de APIs REST", level: 90 },
-      { name: "Manejo de estados básico", level: 75 },
+      { name: "Componentes reutilizables", level: 75 },
+      { name: "Formularios", level: 70 },
+      { name: "Manejo de estado básico", level: 65 },
+      { name: "PrimeNG", level: 60 },
     ],
   },
   {
-    category: "IA aplicada al desarrollo",
+    category: "Conocimientos complementarios",
     items: [
-      { name: "Generación de código base", level: 90 },
-      { name: "Optimización y refactor", level: 85 },
-      { name: "Debugging asistido", level: 85 },
-      { name: "Análisis y comprensión", level: 90 },
+      { name: ".NET básico", level: 35 },
+      { name: "MongoDB básico", level: 35 },
+      { name: "AWS básico", level: 30 },
+      { name: "IA como apoyo al desarrollo", level: 65 },
     ],
   },
 ];
 
 /** Case study — featured project deep-dive. */
 const CASE_STUDY = {
-  project: "Sistema de Gestión",
-  tagline: "Modernización de una herramienta interna con enfoque en escalabilidad.",
+  project: "Aplicación Frontend en Angular",
+  badge: "Destacado · 2024",
+  tagline: "Proyecto frontend para practicar estructura de componentes, consumo de datos y diseño responsive.",
   problem:
-    "El sistema anterior era lento y no estaba optimizado para dispositivos móviles, lo que causaba cuellos de botella en la operativa diaria y dificultaba el entrenamiento de nuevos empleados.",
+    "El objetivo era construir una interfaz organizada que permitiera visualizar información de forma clara, mantener una navegación sencilla y adaptarse correctamente a diferentes tamaños de pantalla.",
   solution:
-    "Desarrollo de una Progressive Web App (PWA) en Angular con una arquitectura centrada en la eficiencia. Se implementó una interfaz limpia y componentes modulares que permiten visualizaciones de datos en tiempo real y mejoran la experiencia general del usuario.",
+    "Desarrollo de una aplicación frontend con Angular, TypeScript, HTML y CSS, separando la interfaz en componentes reutilizables y manteniendo una estructura fácil de entender y extender.",
   decisions: [
-    { label: "Angular + TypeScript", reason: "Para tipado seguro, estructura robusta y un ecosistema sólido en proyectos escalables." },
-    { label: "Componentes Modulares", reason: "Creación de componentes aislados para reutilizar lógica en diferentes partes de la aplicación." },
-    { label: "CSS Grid / Flexbox", reason: "Diseño completamente responsivo adaptado tanto a monitores de escritorio como a tabletas." },
-    { label: "Optimización por IA", reason: "Uso de asistentes de código para refactorizar lógica pesada y asegurar un rendimiento óptimo." },
+    { label: "Angular + TypeScript", reason: "Para trabajar con una estructura clara, componentes organizados y tipado que ayuda a reducir errores." },
+    { label: "Componentes reutilizables", reason: "Separación de secciones de la interfaz para facilitar mantenimiento y reutilización dentro del proyecto." },
+    { label: "Responsive Design", reason: "Uso de CSS Grid, Flexbox y media queries para adaptar la experiencia a móvil, tablet y escritorio." },
+    { label: "Consumo de APIs REST", reason: "Integración con datos externos o simulados para practicar flujos reales de carga, estados y presentación de información." },
   ],
   results: [
-    { metric: "-40%", label: "Reducción en tiempos de carga iniciales" },
-    { metric: "100%", label: "Migración a una arquitectura de componentes" },
-    { metric: "Mobile", label: "Soporte total para dispositivos móviles" },
-    { metric: "A11y AA", label: "Cumplimiento de estándares de accesibilidad" },
+    { metric: "Angular", label: "Estructura basada en componentes" },
+    { metric: "REST", label: "Consumo y presentación de datos" },
+    { metric: "Responsive", label: "Adaptación a diferentes pantallas" },
+    { metric: "Scrum", label: "Trabajo organizado por tareas" },
   ],
 };
 
@@ -156,27 +104,30 @@ const PROFILE = {
   name: "Julio Mendoza",
   role: "Frontend Developer enfocado en Angular",
   location: "Colombia",
-  years: 2,
-  bio:
-    "Desarrollo interfaces modernas, escalables y optimizadas, combinando buenas prácticas de desarrollo con el uso de herramientas de IA para mejorar la eficiencia y calidad del código. Soy desarrollador frontend con experiencia en Angular, enfocado en la creación de interfaces dinámicas, reutilizables y orientadas a una buena experiencia de usuario.<br><br>Actualmente trabajo en el desarrollo de aplicaciones donde combino conocimientos técnicos con herramientas de inteligencia artificial para acelerar procesos, generar soluciones base y optimizar código, siempre validando y adaptando cada implementación a buenas prácticas.<br><br>Me interesa seguir creciendo como desarrollador, fortalecer mis bases y construir soluciones cada vez más completas y eficientes.",
+  experience: "Cerca de 1 año y medio",
+  bio: [
+    "Desarrollador frontend en crecimiento, con cerca de año y medio de experiencia práctica construyendo interfaces web con Angular. Me enfoco principalmente en Angular, TypeScript, HTML y CSS para crear interfaces claras, responsivas y fáciles de usar, cuidando la experiencia visual, la organización del código y su mantenibilidad.",
+    "He trabajado en el desarrollo de componentes reutilizables, formularios, consumo de APIs REST, manejo básico de estado y diseño adaptable a diferentes dispositivos.",
+    "También he tenido contacto con metodologías ágiles como Scrum y conocimientos iniciales en tecnologías como .NET, MongoDB y AWS. Aunque mi enfoque principal es el frontend, este acercamiento me ha permitido entender mejor cómo se integran las diferentes partes de una aplicación.",
+  ],
   differentiators: [
     {
-      title: "UX orientado al usuario final",
-      body: "Diseño para la persona que va a usar la plataforma todos los días, enfocándome en la usabilidad y la accesibilidad.",
+      title: "Frontend claro y ordenado",
+      body: "Construyo interfaces pensando en la persona que las va a usar y en que el código pueda mantenerse con facilidad.",
     },
     {
-      title: "Arquitectura escalable",
-      body: "Uso de buenas prácticas, componentes reutilizables y código limpio para que el proyecto pueda crecer sin fricciones.",
+      title: "Componentes reutilizables",
+      body: "Me enfoco en separar responsabilidades, reutilizar piezas de UI y mantener una estructura entendible dentro del proyecto.",
     },
     {
-      title: "Rendimiento y Optimización",
-      body: "Aprovechando herramientas de IA y métricas reales para asegurar interfaces rápidas y eficientes.",
+      title: "Aprendizaje y mejora continua",
+      body: "Uso herramientas de apoyo, documentación y buenas prácticas para seguir fortaleciendo mis bases técnicas.",
     },
   ],
   social: {
-    github: "https://github.com/tu-usuario",
-    linkedin: "https://linkedin.com/in/tu-usuario",
-    email: "tu-correo@email.com",
+    github: "",
+    linkedin: "https://www.linkedin.com/in/julio-andres-mendoza-ba89151ab",
+    email: "anjumendoza16@gmail.com",
   },
 };
 

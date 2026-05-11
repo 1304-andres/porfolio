@@ -499,6 +499,11 @@ section {
 }
 @media (min-width: 640px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (min-width: 1024px) { .projects-grid { grid-template-columns: repeat(3, 1fr); } }
+.projects-grid--single {
+  max-width: 720px;
+  margin: 0 auto;
+}
+@media (min-width: 640px) { .projects-grid--single { grid-template-columns: 1fr; } }
 
 .project-card {
   position: relative;
@@ -984,6 +989,12 @@ section {
 .social:hover .arrow {
   color: var(--accent);
   transform: translateX(3px);
+}
+.contact-pending {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  margin: 0;
 }
 
 /* Form */
