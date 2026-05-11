@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Julio Mendoza — Frontend Developer</title>
-  <meta name="description" content="Portfolio de Julio Mendoza, Frontend Developer enfocado en Angular, desarrollo de interfaces modernas y uso de IA." />
+  <title>Julio Mendoza — Desarrollador Frontend Angular</title>
+  <meta name="description" content="Portfolio de Julio Mendoza, desarrollador frontend enfocado en Angular, TypeScript, HTML, CSS y construcción de interfaces web responsivas." />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=20260507-2" />
 </head>
 <body>
   <div class="backdrop"></div>
@@ -26,7 +26,7 @@
       <span><strong>julio</strong><span>.dev</span></span>
     </a>
 
-    <nav aria-label="Primary">
+    <nav aria-label="Navegación principal">
       <ul class="nav-links">
         <li><a class="nav-link" href="#projects">Proyectos</a></li>
         <li><a class="nav-link" href="#case-study">Caso de Estudio</a></li>
@@ -41,12 +41,12 @@
       Disponible para trabajar
     </a>
 
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <button class="nav-toggle" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
       <span aria-hidden="true"></span>
     </button>
   </header>
 
-  <div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
     <ul>
       <li><a href="#projects">Proyectos</a></li>
       <li><a href="#case-study">Caso de Estudio</a></li>
@@ -64,21 +64,21 @@
       <div class="container hero-inner">
         <span class="hero-meta">
           <span class="dot"></span>
-          Colombia · Abierto a oportunidades como Frontend
+          Colombia · Frontend Developer enfocado en Angular
         </span>
 
         <h1>
-          <span class="line"><span>Interfaces</span></span>
-          <span class="line"><span>construidas para el</span></span>
-          <span class="line"><span class="accent">usuario final.</span></span>
+          <span class="line"><span>Interfaces web</span></span>
+          <span class="line"><span>claras y responsivas</span></span>
+          <span class="line"><span class="accent">para el usuario.</span></span>
         </h1>
 
         <p class="role-line" id="hero-role"></p>
 
         <p class="hero-lede">
-          Soy Julio — diseño y construyo el front-end de aplicaciones dinámicas: herramientas que 
-          las personas realmente usan todos los días. Con Angular, TypeScript y un firme enfoque en las buenas prácticas,
-          la accesibilidad y la implementación de Inteligencia Artificial para optimizar código.
+          Soy Julio Mendoza, desarrollador frontend con cerca de año y medio de experiencia práctica
+          construyendo interfaces con Angular, TypeScript, HTML y CSS. Me enfoco en crear componentes
+          reutilizables, consumir APIs REST y trabajar de forma ordenada bajo metodologías ágiles como Scrum.
         </p>
 
         <div class="hero-cta-row">
@@ -93,8 +93,8 @@
 
         <div class="hero-stats">
           <div>
-            <span class="stat-num">2+</span>
-            <span class="stat-label">Años de exp.</span>
+            <span class="stat-num">1 año+</span>
+            <span class="stat-label">Práctica frontend</span>
           </div>
           <div>
             <span class="stat-num">Angular</span>
@@ -105,14 +105,14 @@
             <span class="stat-label">Tipado seguro</span>
           </div>
           <div>
-            <span class="stat-num">IA</span>
-            <span class="stat-label">Asistencia de código</span>
+            <span class="stat-num">Scrum</span>
+            <span class="stat-label">Trabajo ágil</span>
           </div>
         </div>
       </div>
 
-      <a class="scroll-hint" href="#projects" aria-label="Scroll to projects">
-        scroll
+      <a class="scroll-hint" href="#projects" aria-label="Ir a proyectos">
+        bajar
       </a>
     </section>
 
@@ -127,8 +127,8 @@
             <h2 class="section-title">Proyectos</h2>
           </div>
           <p class="section-lede">
-            Una selección de proyectos recientes en los que he trabajado, enfocados en construir interfaces
-            sólidas y eficientes. Incluyen enlaces a repositorios y demos.
+            Por ahora estoy organizando mis proyectos. Esta sección queda preparada para mostrar trabajos reales
+            con Angular, TypeScript, HTML, CSS y consumo de APIs REST.
           </p>
         </div>
 
@@ -147,8 +147,8 @@
             <h2 class="section-title">Análisis a fondo</h2>
           </div>
           <p class="section-lede">
-            Un proyecto desglosado. El problema, las restricciones y las decisiones 
-            importantes de arquitectura.
+            Un proyecto desglosado desde el problema, la solución propuesta y las decisiones técnicas
+            tomadas durante la implementación frontend.
           </p>
         </div>
         <div id="case-study-body"></div>
@@ -166,7 +166,7 @@
             <h2 class="section-title">Habilidades</h2>
           </div>
           <p class="section-lede">
-            Agrupadas por área de enfoque, estas son las tecnologías y herramientas que manejo en mi día a día.
+            Tecnologías y herramientas organizadas por enfoque principal, flujo de trabajo y conocimientos complementarios.
           </p>
         </div>
         <div class="skills-grid" id="skills-grid"></div>
@@ -180,7 +180,7 @@
       <div class="container about-grid">
         <div class="avatar reveal" aria-hidden="true">
           <span class="avatar__initials" id="avatar-initials">JM</span>
-          <span class="avatar__tag" id="avatar-tag">Barcelona, ES</span>
+          <span class="avatar__tag" id="avatar-tag">Colombia</span>
         </div>
         <div class="about-body reveal" id="about-body" data-delay="100"></div>
       </div>
@@ -195,7 +195,8 @@
           <span class="eyebrow">Contacto</span>
           <h2 class="section-title">Hablemos de<br>tu próximo proyecto.</h2>
           <p>
-            Buscando oportunidades como desarrollador Frontend en Angular o proyectos interesantes. Respondo a la brevedad.
+            Estoy abierto a oportunidades como desarrollador frontend, especialmente trabajando con Angular,
+            TypeScript, HTML y CSS. Respondo a la brevedad.
           </p>
           <div class="socials" id="socials"></div>
         </aside>
@@ -203,15 +204,15 @@
         <form class="contact-form reveal" id="contact-form" data-delay="100" novalidate>
           <div class="field">
             <label for="f-name">Nombre</label>
-            <input id="f-name" name="name" type="text" placeholder="Tu nombre completo" autocomplete="name" />
+            <input id="f-name" name="name" type="text" placeholder="Tu nombre completo" autocomplete="name" required />
           </div>
           <div class="field">
-            <label for="f-email">Correo Electrónico</label>
-            <input id="f-email" name="email" type="email" placeholder="tu@correo.com" autocomplete="email" />
+            <label for="f-email">Correo electrónico</label>
+            <input id="f-email" name="email" type="email" placeholder="tu@correo.com" autocomplete="email" required />
           </div>
           <div class="field">
             <label for="f-message">Mensaje</label>
-            <textarea id="f-message" name="message" placeholder="Un par de líneas sobre tu proyecto o rol…"></textarea>
+            <textarea id="f-message" name="message" placeholder="Un par de líneas sobre tu proyecto o rol…" required></textarea>
           </div>
           <div class="form-footer">
             <span class="form-note">Se abre en tu cliente de correo · Sin backend</span>
@@ -235,7 +236,7 @@
     </span>
   </footer>
 
-  <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script src="data.js?v=20260507-2"></script>
+  <script src="script.js?v=20260507-2"></script>
 </body>
 </html>

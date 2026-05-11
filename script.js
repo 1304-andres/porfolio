@@ -33,9 +33,15 @@
   function renderProjects() {
     const host = $("#projects-grid");
     if (!host) return;
+    host.classList.toggle("projects-grid--single", PROJECTS.length === 1);
     host.innerHTML = PROJECTS.map((p, i) => {
       const idx = String(i + 1).padStart(2, "0");
       const tags = p.stack.map((t) => `<span class="tag">${esc(t)}</span>`).join("");
+      const links = [
+        p.repo ? `<a href="${esc(p.repo)}" target="_blank" rel="noopener">${iconGitHub}<span>Código</span></a>` : "",
+        p.demo ? `<a href="${esc(p.demo)}" target="_blank" rel="noopener">${iconExternal}<span>Live demo</span></a>` : "",
+      ].filter(Boolean).join("");
+      const projectLinks = links ? `<div class="project-card__links">${links}</div>` : "";
       return `
         <article class="project-card reveal" data-delay="${(i % 3) * 100}"
                  style="--card-accent: ${esc(p.accent || "rgba(0,212,255,0.35)")}">
@@ -46,14 +52,7 @@
           <h3 class="project-card__name">${esc(p.name)}</h3>
           <p class="project-card__desc">${esc(p.description)}</p>
           <div class="tag-row">${tags}</div>
-          <div class="project-card__links">
-            <a href="${esc(p.repo)}" target="_blank" rel="noopener">
-              ${iconGitHub}<span>Código</span>
-            </a>
-            <a href="${esc(p.demo)}" target="_blank" rel="noopener">
-              ${iconExternal}<span>Live demo</span>
-            </a>
-          </div>
+          ${projectLinks}
         </article>
       `;
     }).join("");
@@ -85,8 +84,8 @@
     host.innerHTML = `
       <div class="case-card reveal">
         <div class="case-card__head">
-          <h3 class="case-card__title">Case Study — ${esc(CASE_STUDY.project)}</h3>
-          <span class="case-card__tag">Featured · 2024</span>
+          <h3 class="case-card__title">Caso de estudio — ${esc(CASE_STUDY.project)}</h3>
+          <span class="case-card__tag">${esc(CASE_STUDY.badge)}</span>
         </div>
         <p class="case-card__tagline">${esc(CASE_STUDY.tagline)}</p>
 
@@ -108,7 +107,7 @@
         <div class="results-grid">${results}</div>
 
         <div class="screenshot-placeholder">
-          [ Screenshots placeholder · 1600 × 700 · add build artifacts here ]
+          [ Espacio para capturas · 1600 × 700 · agrega aquí los recursos visuales ]
         </div>
       </div>
     `;
@@ -145,6 +144,7 @@
   function renderAbout() {
     const host = $("#about-body");
     if (!host) return;
+    const bio = PROFILE.bio.map((paragraph) => `<p>${esc(paragraph)}</p>`).join("");
     const diffs = PROFILE.differentiators.map((d) => `
       <li class="diff">
         <span class="diff__title">${esc(d.title)}</span>
@@ -152,10 +152,10 @@
       </li>
     `).join("");
     host.innerHTML = `
-      <span class="eyebrow">About</span>
-      <h2 class="section-title">${esc(PROFILE.years)} years building
-        <span style="color: var(--accent)">front-ends</span> that<br>don't break at 3 a.m.</h2>
-      <p>${esc(PROFILE.bio)}</p>
+      <span class="eyebrow">Sobre mí</span>
+      <h2 class="section-title">${esc(PROFILE.experience)} construyendo
+        <span style="color: var(--accent)">interfaces frontend</span> con foco en Angular.</h2>
+      ${bio}
       <ul class="differentiators">${diffs}</ul>
     `;
 
@@ -170,17 +170,13 @@
     const host = $("#socials");
     if (!host) return;
     const { github, linkedin, email } = PROFILE.social;
-    host.innerHTML = `
-      <a class="social" href="${esc(github)}" target="_blank" rel="noopener">
-        ${iconGitHub}<span class="label">github.com/${esc(github.split("/").pop())}</span><span class="arrow">→</span>
-      </a>
-      <a class="social" href="${esc(linkedin)}" target="_blank" rel="noopener">
-        ${iconLinkedIn}<span class="label">linkedin.com/in/${esc(linkedin.split("/").pop())}</span><span class="arrow">→</span>
-      </a>
-      <a class="social" href="mailto:${esc(email)}">
-        ${iconMail}<span class="label">${esc(email)}</span><span class="arrow">→</span>
-      </a>
-    `;
+    const links = [
+      github ? `<a class="social" href="${esc(github)}" target="_blank" rel="noopener">${iconGitHub}<span class="label">github.com/${esc(github.split("/").pop())}</span><span class="arrow">→</span></a>` : "",
+      linkedin ? `<a class="social" href="${esc(linkedin)}" target="_blank" rel="noopener">${iconLinkedIn}<span class="label">linkedin.com/in/${esc(linkedin.split("/").pop())}</span><span class="arrow">→</span></a>` : "",
+      email ? `<a class="social" href="mailto:${esc(email)}">${iconMail}<span class="label">${esc(email)}</span><span class="arrow">→</span></a>` : "",
+    ].filter(Boolean).join("");
+
+    host.innerHTML = links || `<p class="contact-pending">Agrega aquí tu GitHub, LinkedIn y correo cuando estén listos.</p>`;
   }
 
   function renderHero() {
@@ -188,7 +184,8 @@
     if (roleEl) {
       roleEl.innerHTML =
         `<span>Frontend Developer</span><span class="sep"></span>` +
-        `<span>Angular Specialist</span><span class="sep"></span>` +
+        `<span>Angular</span><span class="sep"></span>` +
+        `<span>TypeScript</span><span class="sep"></span>` +
         `<span>${esc(PROFILE.location)}</span><span class="caret"></span>`;
     }
   }
@@ -227,11 +224,26 @@
 
     // Mobile menu
     if (toggle && mobile) {
+      const setMobileMenu = (isOpen) => {
+        mobile.classList.toggle("is-open", isOpen);
+        toggle.setAttribute("aria-expanded", String(isOpen));
+        toggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+        mobile.setAttribute("aria-hidden", String(!isOpen));
+        mobile.toggleAttribute("inert", !isOpen);
+      };
+
       toggle.addEventListener("click", () => {
-        mobile.classList.toggle("is-open");
+        setMobileMenu(!mobile.classList.contains("is-open"));
       });
       mobile.addEventListener("click", (e) => {
-        if (e.target.tagName === "A") mobile.classList.remove("is-open");
+        if (e.target.tagName === "A") {
+          setMobileMenu(false);
+        }
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mobile.classList.contains("is-open")) {
+          setMobileMenu(false);
+        }
       });
     }
   }
@@ -296,6 +308,7 @@
     const form = $("#contact-form");
     if (!form) return;
     const status = $("#form-status");
+    const emailField = $("#f-email", form);
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
@@ -304,7 +317,19 @@
       const email = (data.get("email") || "").toString().trim();
       const msg = (data.get("message") || "").toString().trim();
       if (!name || !email || !msg) {
-        status.textContent = "— fill in all fields to send";
+        status.textContent = "Completa todos los campos para enviar.";
+        status.style.color = "#FF6B9D";
+        status.classList.add("is-visible");
+        return;
+      }
+      if (emailField && !emailField.validity.valid) {
+        status.textContent = "Ingresa un correo electrónico válido.";
+        status.style.color = "#FF6B9D";
+        status.classList.add("is-visible");
+        return;
+      }
+      if (!PROFILE.social.email) {
+        status.textContent = "Configura primero tu correo de contacto en data.js.";
         status.style.color = "#FF6B9D";
         status.classList.add("is-visible");
         return;
@@ -314,7 +339,7 @@
       const body = encodeURIComponent(`${msg}\n\n— ${name} <${email}>`);
       window.location.href = `mailto:${PROFILE.social.email}?subject=${subject}&body=${body}`;
 
-      status.textContent = "✓ opening your mail client…";
+      status.textContent = "Abriendo tu cliente de correo…";
       status.style.color = "#30E0A1";
       status.classList.add("is-visible");
       form.reset();
