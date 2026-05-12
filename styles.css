@@ -415,6 +415,12 @@ section {
   border: 1px solid var(--border-hi);
 }
 .btn--ghost:hover { background: rgba(255,255,255,0.06); border-color: var(--accent); color: var(--accent); }
+.btn:disabled,
+.btn.is-loading {
+  cursor: not-allowed;
+  opacity: 0.68;
+  transform: none;
+}
 
 .btn .ripple {
   position: absolute;

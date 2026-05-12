@@ -4,14 +4,14 @@
  * - IntersectionObserver scroll reveal
  * - Skill bar fill on reveal
  * - Ripple effect on .btn
- * - Contact form (mailto fallback, no backend)
- * - Populates Projects / Skills / Case Study / About from data.js
+ * - Contact form with Formspree integration
+ * - Populates Projects / Challenges / Skills / About from data.js
  * ============================================================ */
 
 (function () {
   "use strict";
 
-  const { PROJECTS, SKILL_GROUPS, CASE_STUDY, PROFILE } = window.PORTFOLIO_DATA;
+  const { PROJECTS, SKILL_GROUPS, PROFESSIONAL_CHALLENGES, PROFILE } = window.PORTFOLIO_DATA;
 
   /* ---------- Utilities ---------- */
   const $  = (sel, root = document) => root.querySelector(sel);
@@ -59,56 +59,41 @@
   }
 
   /* ============================================================
-   * Populate: CASE STUDY
+   * Populate: PROFESSIONAL CHALLENGES
    * ============================================================ */
-  function renderCaseStudy() {
-    const host = $("#case-study-body");
+  function renderChallenges() {
+    const host = $("#challenges-body");
     if (!host) return;
 
-    const decisions = CASE_STUDY.decisions
-      .map((d) => `
-        <li>
-          <span class="d-label">${esc(d.label)}</span>
-          <span class="d-reason">${esc(d.reason)}</span>
-        </li>`)
+    const challenges = PROFESSIONAL_CHALLENGES.items
+      .map((challenge) => `
+        <div class="case-block">
+          <h4>${esc(challenge.title)}</h4>
+          <p>${esc(challenge.body)}</p>
+        </div>`)
       .join("");
 
-    const results = CASE_STUDY.results
-      .map((r) => `
+    const highlights = PROFESSIONAL_CHALLENGES.highlights
+      .map((highlight) => `
         <div class="result">
-          <span class="metric">${esc(r.metric)}</span>
-          <span class="label">${esc(r.label)}</span>
+          <span class="metric">${esc(highlight.metric)}</span>
+          <span class="label">${esc(highlight.label)}</span>
         </div>`)
       .join("");
 
     host.innerHTML = `
       <div class="case-card reveal">
         <div class="case-card__head">
-          <h3 class="case-card__title">Caso de estudio — ${esc(CASE_STUDY.project)}</h3>
-          <span class="case-card__tag">${esc(CASE_STUDY.badge)}</span>
+          <h3 class="case-card__title">Retos profesionales</h3>
+          <span class="case-card__tag">${esc(PROFESSIONAL_CHALLENGES.badge)}</span>
         </div>
-        <p class="case-card__tagline">${esc(CASE_STUDY.tagline)}</p>
+        <p class="case-card__tagline">${esc(PROFESSIONAL_CHALLENGES.intro)}</p>
 
         <div class="case-grid">
-          <div class="case-block">
-            <h4>Problema</h4>
-            <p>${esc(CASE_STUDY.problem)}</p>
-          </div>
-          <div class="case-block">
-            <h4>Solución</h4>
-            <p>${esc(CASE_STUDY.solution)}</p>
-          </div>
-          <div class="case-block" style="grid-column: 1 / -1;">
-            <h4>Decisiones Técnicas</h4>
-            <ul class="decisions-list">${decisions}</ul>
-          </div>
+          ${challenges}
         </div>
 
-        <div class="results-grid">${results}</div>
-
-        <div class="screenshot-placeholder">
-          [ Espacio para capturas · 1600 × 700 · agrega aquí los recursos visuales ]
-        </div>
+        <div class="results-grid">${highlights}</div>
       </div>
     `;
   }
@@ -154,7 +139,7 @@
     host.innerHTML = `
       <span class="eyebrow">Sobre mí</span>
       <h2 class="section-title">${esc(PROFILE.experience)} construyendo
-        <span style="color: var(--accent)">interfaces frontend</span> con foco en Angular.</h2>
+        <span style="color: var(--accent)">interfaces y soluciones web</span> con foco en Angular.</h2>
       ${bio}
       <ul class="differentiators">${diffs}</ul>
     `;
@@ -302,48 +287,74 @@
   }
 
   /* ============================================================
-   * Contact form — no backend; open mail client
+   * Contact form — Formspree integration, no custom backend
    * ============================================================ */
   function initForm() {
     const form = $("#contact-form");
     if (!form) return;
     const status = $("#form-status");
     const emailField = $("#f-email", form);
+    const submitButton = form.querySelector('button[type="submit"]');
+    const submitLabel = $(".btn-label", form);
+    const endpoint = PROFILE.contact?.formspreeEndpoint || "";
 
-    form.addEventListener("submit", (e) => {
+    const setStatus = (message, color = "#30E0A1") => {
+      status.textContent = message;
+      status.style.color = color;
+      status.classList.add("is-visible");
+    };
+
+    const setSubmitting = (isSubmitting) => {
+      if (!submitButton) return;
+      submitButton.disabled = isSubmitting;
+      submitButton.classList.toggle("is-loading", isSubmitting);
+      if (submitLabel) submitLabel.textContent = isSubmitting ? "Enviando" : "Enviar";
+    };
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
       const data = new FormData(form);
       const name = (data.get("name") || "").toString().trim();
       const email = (data.get("email") || "").toString().trim();
       const msg = (data.get("message") || "").toString().trim();
       if (!name || !email || !msg) {
-        status.textContent = "Completa todos los campos para enviar.";
-        status.style.color = "#FF6B9D";
-        status.classList.add("is-visible");
+        setStatus("Completa todos los campos para enviar.", "#FF6B9D");
         return;
       }
       if (emailField && !emailField.validity.valid) {
-        status.textContent = "Ingresa un correo electrónico válido.";
-        status.style.color = "#FF6B9D";
-        status.classList.add("is-visible");
+        setStatus("Ingresa un correo electrónico válido.", "#FF6B9D");
         return;
       }
-      if (!PROFILE.social.email) {
-        status.textContent = "Configura primero tu correo de contacto en data.js.";
-        status.style.color = "#FF6B9D";
-        status.classList.add("is-visible");
+      if (!endpoint) {
+        setStatus("Configura primero tu endpoint de Formspree en data.js.", "#FF6B9D");
         return;
       }
 
-      const subject = encodeURIComponent(`Portfolio · ${name}`);
-      const body = encodeURIComponent(`${msg}\n\n— ${name} <${email}>`);
-      window.location.href = `mailto:${PROFILE.social.email}?subject=${subject}&body=${body}`;
+      data.set("_subject", `Nuevo mensaje desde el portfolio · ${name}`);
+      data.set("_replyto", email);
 
-      status.textContent = "Abriendo tu cliente de correo…";
-      status.style.color = "#30E0A1";
-      status.classList.add("is-visible");
-      form.reset();
-      setTimeout(() => status.classList.remove("is-visible"), 4000);
+      setSubmitting(true);
+      setStatus("Enviando mensaje…");
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          body: data,
+          headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) {
+          throw new Error("Formspree request failed");
+        }
+
+        setStatus("Mensaje enviado correctamente. Te responderé pronto.");
+        form.reset();
+        setTimeout(() => status.classList.remove("is-visible"), 5000);
+      } catch (error) {
+        setStatus("No se pudo enviar el mensaje. Intenta nuevamente o escríbeme por correo.", "#FF6B9D");
+      } finally {
+        setSubmitting(false);
+      }
     });
   }
 
@@ -381,7 +392,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     renderHero();
     renderProjects();
-    renderCaseStudy();
+    renderChallenges();
     renderSkills();
     renderAbout();
     renderContact();

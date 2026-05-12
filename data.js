@@ -76,26 +76,38 @@ const SKILL_GROUPS = [
   },
 ];
 
-/** Case study — featured project deep-dive. */
-const CASE_STUDY = {
-  project: "Aplicación Frontend en Angular",
-  badge: "Destacado · 2024",
-  tagline: "Proyecto frontend para practicar estructura de componentes, consumo de datos y diseño responsive.",
-  problem:
-    "El objetivo era construir una interfaz organizada que permitiera visualizar información de forma clara, mantener una navegación sencilla y adaptarse correctamente a diferentes tamaños de pantalla.",
-  solution:
-    "Desarrollo de una aplicación frontend con Angular, TypeScript, HTML y CSS, separando la interfaz en componentes reutilizables y manteniendo una estructura fácil de entender y extender.",
-  decisions: [
-    { label: "Angular + TypeScript", reason: "Para trabajar con una estructura clara, componentes organizados y tipado que ayuda a reducir errores." },
-    { label: "Componentes reutilizables", reason: "Separación de secciones de la interfaz para facilitar mantenimiento y reutilización dentro del proyecto." },
-    { label: "Responsive Design", reason: "Uso de CSS Grid, Flexbox y media queries para adaptar la experiencia a móvil, tablet y escritorio." },
-    { label: "Consumo de APIs REST", reason: "Integración con datos externos o simulados para practicar flujos reales de carga, estados y presentación de información." },
+/** Professional challenges — real experience without exposing private projects. */
+const PROFESSIONAL_CHALLENGES = {
+  badge: "Experiencia real · Aprendizaje constante",
+  intro:
+    "Aunque algunos trabajos pertenecen a entornos privados o empresariales, mi experiencia me ha permitido enfrentar retos reales del desarrollo frontend: crear interfaces dinámicas, adaptar vistas a diferentes dispositivos, consumir datos desde APIs y mantener código claro mientras sigo fortaleciendo mis bases técnicas.",
+  items: [
+    {
+      title: "Formularios dinámicos",
+      body:
+        "Trabajé en un formulario cuya estructura variaba según la industria seleccionada por el usuario. Esa estructura estaba almacenada en MongoDB y se exponía al frontend mediante una API, de modo que Angular recibía los campos correspondientes y los renderizaba dinámicamente sin tocar el código de la vista. El reto estuvo en interpretar correctamente esa respuesta y construir el formulario en tiempo de ejecución de forma confiable.",
+    },
+    {
+      title: "Rediseño responsive",
+      body:
+        "Trabajé en el rediseño de una vista para adaptarla a diferentes tamaños de pantalla, desde móvil hasta escritorio. El reto estuvo en mantener una experiencia clara y usable en todos los breakpoints sin romper la estructura visual existente. Aprendí a priorizar qué información mostrar en cada contexto y a tomar decisiones de diseño pensando primero en el usuario.",
+    },
+    {
+      title: "Escalabilidad de componentes",
+      body:
+        "He construido componentes reutilizables en Angular buscando mantener el código organizado y fácil de mantener. El desafío real estuvo en encontrar el equilibrio entre flexibilidad y simplicidad: que un componente sirva para varios casos sin volverse difícil de entender o modificar.",
+    },
+    {
+      title: "Crecimiento técnico constante",
+      body:
+        "Mientras avanzo en proyectos reales, he profundizado en TypeScript, buenas prácticas de Angular y consumo de APIs REST. Cada reto nuevo me ha obligado a entender el porqué detrás de las decisiones técnicas, no solo a hacer que las cosas funcionen.",
+    },
   ],
-  results: [
-    { metric: "Angular", label: "Estructura basada en componentes" },
-    { metric: "REST", label: "Consumo y presentación de datos" },
-    { metric: "Responsive", label: "Adaptación a diferentes pantallas" },
-    { metric: "Scrum", label: "Trabajo organizado por tareas" },
+  highlights: [
+    { metric: "Angular", label: "Interfaces y componentes dinámicos" },
+    { metric: "TypeScript", label: "Código más claro y mantenible" },
+    { metric: "APIs REST", label: "Conexión entre datos e interfaz" },
+    { metric: "Responsive", label: "Experiencia adaptable por pantalla" },
   ],
 };
 
@@ -104,9 +116,9 @@ const PROFILE = {
   name: "Julio Mendoza",
   role: "Frontend Developer enfocado en Angular",
   location: "Colombia",
-  experience: "Cerca de 1 año y medio",
+  experience: "Más de un año",
   bio: [
-    "Desarrollador frontend en crecimiento, con cerca de año y medio de experiencia práctica construyendo interfaces web con Angular. Me enfoco principalmente en Angular, TypeScript, HTML y CSS para crear interfaces claras, responsivas y fáciles de usar, cuidando la experiencia visual, la organización del código y su mantenibilidad.",
+    "Desarrollador web en crecimiento, con más de un año de experiencia práctica construyendo interfaces web con Angular. Mi base principal está en frontend con Angular, TypeScript, HTML y CSS, pero también he tenido acercamiento a backend, bases de datos y servicios cloud.",
     "He trabajado en el desarrollo de componentes reutilizables, formularios, consumo de APIs REST, manejo básico de estado y diseño adaptable a diferentes dispositivos.",
     "También he tenido contacto con metodologías ágiles como Scrum y conocimientos iniciales en tecnologías como .NET, MongoDB y AWS. Aunque mi enfoque principal es el frontend, este acercamiento me ha permitido entender mejor cómo se integran las diferentes partes de una aplicación.",
   ],
@@ -129,7 +141,10 @@ const PROFILE = {
     linkedin: "https://www.linkedin.com/in/julio-andres-mendoza-ba89151ab",
     email: "anjumendoza16@gmail.com",
   },
+  contact: {
+    formspreeEndpoint: "https://formspree.io/f/xkoyewkr",
+  },
 };
 
 // Expose globals for script.js (no modules — GitHub Pages friendly).
-window.PORTFOLIO_DATA = { PROJECTS, SKILL_GROUPS, CASE_STUDY, PROFILE };
+window.PORTFOLIO_DATA = { PROJECTS, SKILL_GROUPS, PROFESSIONAL_CHALLENGES, PROFILE };

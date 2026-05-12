@@ -15,7 +15,7 @@ La mayoría del contenido visible se actualiza en `data.js`:
 
 - `PROJECTS`: proyectos, tecnologías, repositorios y demos.
 - `SKILL_GROUPS`: habilidades y niveles.
-- `CASE_STUDY`: caso de estudio destacado.
+- `PROFESSIONAL_CHALLENGES`: retos profesionales y aprendizajes.
 - `PROFILE`: nombre, ubicación, biografía, enlaces sociales y correo.
 
 ## Ejecutar localmente
@@ -31,5 +31,7 @@ Luego abre `http://localhost:8080` en el navegador.
 ## Pendientes antes de publicar
 
 - Reemplazar los enlaces placeholder de GitHub, LinkedIn, demos y repositorios.
-- Agregar el correo real de contacto en `PROFILE.social.email`.
+- Agregar el enlace real de GitHub cuando esté disponible.
+- Agregar repositorios y demos reales cuando los proyectos estén listos.
+- Crear un formulario en Formspree y pegar su endpoint en `PROFILE.contact.formspreeEndpoint`.
 - Agregar capturas reales en la sección de caso de estudio si están disponibles.
