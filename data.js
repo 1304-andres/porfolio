@@ -83,14 +83,14 @@ const PROFESSIONAL_CHALLENGES = {
     "Aunque algunos trabajos pertenecen a entornos privados o empresariales, mi experiencia me ha permitido enfrentar retos reales del desarrollo frontend: crear interfaces dinámicas, adaptar vistas a diferentes dispositivos, consumir datos desde APIs y mantener código claro mientras sigo fortaleciendo mis bases técnicas.",
   items: [
     {
-      title: "Formularios dinámicos",
+      title: "Formularios dinámicos data-driven",
       body:
-        "Trabajé en un formulario cuya estructura variaba según la industria seleccionada por el usuario. Esa estructura estaba almacenada en MongoDB y se exponía al frontend mediante una API, de modo que Angular recibía los campos correspondientes y los renderizaba dinámicamente sin tocar el código de la vista. El reto estuvo en interpretar correctamente esa respuesta y construir el formulario en tiempo de ejecución de forma confiable.",
+        "Participé en la implementación de un formulario dinámico en Angular cuya estructura dependía de la industria seleccionada. La configuración se almacenaba en MongoDB y se exponía mediante una API con metadatos de campos, validaciones, posición y subcampos. El reto técnico estuvo en hacer que Angular interpretara ese contrato para renderizar controles en tiempo de ejecución, hidratar valores existentes, validar campos requeridos y generar un payload limpio sin modificar manualmente la vista cada vez que cambiaba la estructura.",
     },
     {
       title: "Rediseño responsive",
       body:
-        "Trabajé en el rediseño de una vista para adaptarla a diferentes tamaños de pantalla, desde móvil hasta escritorio. El reto estuvo en mantener una experiencia clara y usable en todos los breakpoints sin romper la estructura visual existente. Aprendí a priorizar qué información mostrar en cada contexto y a tomar decisiones de diseño pensando primero en el usuario.",
+        "Trabajé en el rediseño responsive de una vista existente para adaptarla desde dispositivos móviles hasta escritorio. El reto técnico estuvo en reorganizar la estructura visual sin romper el flujo existente, controlando layout, jerarquía, espaciados y comportamiento por breakpoint. Durante el proceso fue necesario ajustar secciones con CSS, Flexbox, Grid y media queries, evitar desbordamientos y priorizar qué información mostrar en cada tamaño de pantalla para mantener una experiencia clara y usable.",
     },
     {
       title: "Escalabilidad de componentes",

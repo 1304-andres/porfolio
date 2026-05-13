@@ -1,13 +1,15 @@
 # Portfolio de Julio Mendoza
 
-Sitio personal estático construido con HTML, CSS y JavaScript puro. No requiere instalación de dependencias ni proceso de build.
+Portfolio personal de desarrollo web enfocado en Angular, TypeScript, HTML, CSS, retos profesionales y contacto directo mediante Formspree.
+
+Es un sitio estático construido con HTML, CSS y JavaScript puro. No requiere instalación de dependencias ni proceso de build.
 
 ## Estructura
 
 - `index.html`: estructura principal del sitio.
 - `styles.css`: estilos, responsive y animaciones.
 - `script.js`: render dinámico, navegación, animaciones y formulario de contacto.
-- `data.js`: contenido editable del portfolio.
+- `data.js`: contenido editable del portfolio y configuración de contacto.
 
 ## Editar contenido
 
@@ -16,7 +18,17 @@ La mayoría del contenido visible se actualiza en `data.js`:
 - `PROJECTS`: proyectos, tecnologías, repositorios y demos.
 - `SKILL_GROUPS`: habilidades y niveles.
 - `PROFESSIONAL_CHALLENGES`: retos profesionales y aprendizajes.
-- `PROFILE`: nombre, ubicación, biografía, enlaces sociales y correo.
+- `PROFILE`: nombre, ubicación, biografía, enlaces sociales, correo y endpoint de Formspree.
+
+## Formulario de contacto
+
+El formulario envía mensajes mediante Formspree usando el endpoint configurado en:
+
+```js
+PROFILE.contact.formspreeEndpoint
+```
+
+Si Formspree tiene dominios autorizados configurados, el envío funcionará solo desde los dominios permitidos. Para pruebas locales, agrega `127.0.0.1:8080` en Formspree o prueba directamente desde el dominio desplegado.
 
 ## Ejecutar localmente
 
@@ -28,10 +40,19 @@ python3 -m http.server 8080
 
 Luego abre `http://localhost:8080` en el navegador.
 
-## Pendientes antes de publicar
+## Despliegue
 
-- Reemplazar los enlaces placeholder de GitHub, LinkedIn, demos y repositorios.
+El proyecto puede desplegarse como sitio estático en:
+
+- Vercel
+- GitHub Pages
+- Netlify
+- Cloudflare Pages
+
+Para Vercel no se requiere configuración especial de build. El sitio se sirve directamente desde `index.html`.
+
+## Pendientes
+
 - Agregar el enlace real de GitHub cuando esté disponible.
 - Agregar repositorios y demos reales cuando los proyectos estén listos.
-- Crear un formulario en Formspree y pegar su endpoint en `PROFILE.contact.formspreeEndpoint`.
-- Agregar capturas reales en la sección de caso de estudio si están disponibles.
+- Agregar capturas reales cuando existan proyectos publicables.
